@@ -26,7 +26,8 @@ from tensorflow.keras.models import load_model
     #'DropConnect':DropConnect
 #})
 
-model = load_model('../Multi_app/data/16_Multi_8e-6_250_Unfreeze.h5') #paper
+#model = load_model('../Multi_app/data/16_Multi_8e-6_250_Unfreeze.h5') #paper
+model = load_model('../data/16_Multi_8e-6_250_Unfreeze.h5') #paper
 #-------------------------------------------------------------------
 # cut_image.py
 def cut_image(image):
