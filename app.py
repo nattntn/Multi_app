@@ -11,7 +11,8 @@ from tensorflow.keras.preprocessing.image import img_to_array
 
 
 import sys
-sys.path.append('./efficientnet_keras_transfer_learning')
+#sys.path.append('./efficientnet_keras_transfer_learning')
+sys.path.append('efficientnet_keras_transfer_learning')
 
 # model
 #from efficientnet.layers import Swish, DropConnect
@@ -27,7 +28,7 @@ from tensorflow.keras.models import load_model
 #})
 
 #model = load_model('../Multi_app/data/16_Multi_8e-6_250_Unfreeze.h5') #paper
-model = load_model('../data/16_Multi_8e-6_250_Unfreeze.h5') #paper
+model = load_model('data/16_Multi_8e-6_250_Unfreeze.h5') #paper
 #-------------------------------------------------------------------
 # cut_image.py
 def cut_image(image):
