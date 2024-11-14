@@ -12,7 +12,7 @@ from tensorflow.keras.preprocessing.image import img_to_array
 
 import sys
 #sys.path.append('./efficientnet_keras_transfer_learning')
-sys.path.append('efficientnet_keras_transfer_learning')
+sys.path.append('./efficientnet_keras_transfer_learning')
 
 # model
 from efficientnet.layers import Swish, DropConnect
