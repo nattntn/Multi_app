@@ -9,21 +9,22 @@ from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing.image import img_to_array
 
 
+
 import sys
 sys.path.append('./efficientnet_keras_transfer_learning')
 
 # model
-from efficientnet.layers import Swish, DropConnect
-from efficientnet.model import ConvKernalInitializer
-from tensorflow.keras.utils import get_custom_objects
+#from efficientnet.layers import Swish, DropConnect
+#from efficientnet.model import ConvKernalInitializer
+#from tensorflow.keras.utils import get_custom_objects
 from tensorflow.keras.models import load_model
 
 
-get_custom_objects().update({
-    'ConvKernalInitializer': ConvKernalInitializer,
-    'Swish': Swish,
-    'DropConnect':DropConnect
-})
+#get_custom_objects().update({
+   # 'ConvKernalInitializer': ConvKernalInitializer,
+    #'Swish': Swish,
+    #'DropConnect':DropConnect
+#})
 
 model = load_model('../Multi_app/data/16_Multi_8e-6_250_Unfreeze.h5') #paper
 #-------------------------------------------------------------------
