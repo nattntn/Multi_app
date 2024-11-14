@@ -2,4 +2,4 @@ streamlit
 pillow
 numpy
 tensorflow
-efficientnet
+#efficientnet
