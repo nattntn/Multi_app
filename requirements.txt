@@ -4,3 +4,4 @@ numpy
 tensorflow
 #efficientnet
 h5py
+setuptools
