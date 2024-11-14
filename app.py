@@ -93,6 +93,12 @@ def predict_age_gender(img_paths):
 
     confidence = max(con_0, con_1)
     return age_pred, gender_pred, confidence
+
+#--------------------------------------------------------------------------------------
+# เก็บรูป
+import os
+if not os.path.exists("uploads"):
+    os.makedirs("uploads")
 #-------------------------------------------------------------------------------------
 
 # UI
@@ -109,9 +115,13 @@ if uploaded_file is not None:
     filename = uploaded_file.name  # Get the filename
     st.image(image, caption=f"Uploaded X-ray image: {filename}", use_column_width=True)
 
+   # บันทึกภาพลงในโฟลเดอร์ "uploads"
+    image_path = os.path.join("uploads", filename)
+    image.save(image_path)
+
     # ตัดภาพเป็นภาพซ้ายและขวา
     left_img, right_img = cut_image(image)
-
+    
     # เรียกฟังก์ชันทำนายอายุและเพศจากภาพทั้งสอง
     age, gender, confidence = predict_age_gender([left_img, right_img])
 
