@@ -1,7 +1,8 @@
 streamlit 
 pillow
 numpy
-tensorflow
+#tensorflow
+tensorflow==2.15.0
 #efficientnet
 h5py
 setuptools
