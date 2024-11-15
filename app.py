@@ -11,12 +11,13 @@ from tensorflow.keras.preprocessing.image import img_to_array
 
 
 import sys
-import os
-base_path = os.path.dirname(__file__)
-efficientnet_path = os.path.join(base_path, 'efficientnet_keras_transfer_learning')
-sys.path.append(efficientnet_path)
+#import os
+#base_path = os.path.dirname(__file__)
+#efficientnet_path = os.path.join(base_path, 'efficientnet_keras_transfer_learning')
+#sys.path.append(efficientnet_path)
 #sys.path.append('./efficientnet_keras_transfer_learning')
 #sys.path.append('./efficientnet_keras_transfer_learning')
+sys.path.insert(0, './efficientnet_keras_transfer_learning')  # ให้แน่ใจว่าเส้นทางถูกต้อง
 
 # model
 from efficientnet.layers import Swish, DropConnect
