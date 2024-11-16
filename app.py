@@ -2,37 +2,29 @@ import streamlit as st
 from PIL import Image
 import numpy as np
 import tensorflow as tf
-#from tensorflow.keras.utils import get_custom_objects
+from tensorflow.keras.utils import get_custom_objects
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.applications import EfficientNetB0
-from efficientnet.keras import EfficientNetB0
+
+import sys
+import os
+
+base_path = os.path.dirname(__file__)
+efficientnet_path = os.path.join(base_path, 'efficientnet_keras_transfer_learning')
+sys.path.append(efficientnet_path)
+
+from efficientnet.model import ConvKernalInitializer
+from efficientnet.layers import Swish, DropConnect
 
 
 
-#import sys
-#import os
-#base_path = os.path.dirname(__file__)
-#efficientnet_path = os.path.join(base_path, 'efficientnet_keras_transfer_learning')
-#sys.path.append(efficientnet_path)
-#sys.path.append('./efficientnet_keras_transfer_learning')
-#sys.path.append('./efficientnet_keras_transfer_learning')
-#sys.path.insert(0, './efficientnet_keras_transfer_learning')  # ให้แน่ใจว่าเส้นทางถูกต้อง
-
-# model
-#from efficientnet.layers import Swish, DropConnect
-#from efficientnet.model import ConvKernalInitializer
-#from tensorflow.keras.utils import get_custom_objects
-from tensorflow.keras.models import load_model
-
-
-#get_custom_objects().update({
-    #'ConvKernalInitializer': ConvKernalInitializer,
-    #'Swish': Swish,
-    ##'DropConnect':DropConnect
-#})
+get_custom_objects().update({
+    'ConvKernalInitializer': ConvKernalInitializer,
+    'Swish': Swish,
+    'DropConnect':DropConnect
+})
 
 #model = load_model('../Multi_app/data/16_Multi_8e-6_250_Unfreeze.h5') #paper
 model = load_model('16_Multi_8e-6_250_Unfreeze.h5') #paper
@@ -48,17 +40,6 @@ def cut_image(image):
     return cropped_left, cropped_right
 #---------------------------------------------------------------------------------
 # ฟังก์ชันการทำนาย
-#def predict_image(img_path,model, height, width):
-    # Read the image and resize it
-    #img = image.load_img(img_path, target_size=(height, width))
-    # Convert it to a Numpy array with target shape.
-    #x = image.img_to_array(img)
-    # Reshape
-    #x = x.reshape((1,) + x.shape)
-    #x /= 255.
-    #result = model.predict([x])
-    #return result
-
 def predict_image(img, model, height, width):
     # ปรับขนาดและแปลงเป็นอาร์เรย์
     img = img.resize((height, width))  # ปรับขนาดภาพ
