@@ -15,8 +15,8 @@ base_path = os.path.dirname(__file__)
 efficientnet_path = os.path.join(base_path, 'efficientnet_keras_transfer_learning')
 sys.path.append(efficientnet_path)
 
-from efficientnet_keras_transfer_learning.model import ConvKernalInitializer
-from efficientnet_keras_transfer_learning.layers import Swish, DropConnect
+from efficientnet.model import ConvKernalInitializer
+from efficientnet.layers import Swish, DropConnect
 
 
 
